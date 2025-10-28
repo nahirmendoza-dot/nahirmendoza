@@ -1,0 +1,16 @@
+stages:
+    get_data: 
+        cmd: python src/make_data.py --out data/raw/telco_churn.csv
+        outs: 
+           - data/raw/telco_churn.csv
+    train: 
+        cmd: python src/train.py --data data/raw/telco_churn.csv --model models/telco_churn_model.pkl --params params.yaml --metrics metrics.json
+
+        deps: 
+            - src/train.py
+            - data/raw/telco_churn.csv
+            - params.yaml
+        outs:
+            - models/telco_churn_model.pkl
+        metrics:
+            - metrics.json

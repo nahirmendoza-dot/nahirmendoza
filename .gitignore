@@ -1,0 +1,6 @@
+.env
+.dvc/tmp
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+/metrics.json
